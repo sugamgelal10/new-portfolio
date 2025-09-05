@@ -34,8 +34,8 @@ jobs:
           file: ./Dockerfile
 
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/skywelltestdrivefrontend:prod
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/porskywelltestdrivefrontendtfoliofrontend:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/skywelltestdrivefrontend:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:prod
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:buildcache,mode=max
       - name: Call Webhook Endpoint
         run: curl -H 'Authorization:\ Bearer ${{ secrets.COOLIFY_AUTH_TOKEN }}' ${{ secrets.FRONTEND_WEBHOOK_URL}}
